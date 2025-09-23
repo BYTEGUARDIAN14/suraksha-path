@@ -1,6 +1,6 @@
 import React from 'react'
 
-type User = { id: number; name: string; role: 'student' | 'admin'; email?: string; region?: string }
+export type User = { id: number; name: string; role: 'student' | 'admin'; email?: string; region?: string }
 
 type AuthCtx = {
   user: User | null
