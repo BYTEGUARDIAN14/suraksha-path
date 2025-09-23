@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240" height="180" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Water Base -->
+  <path d="M0 120c40-20 80-20 120 0s80 20 120 0v60H0v-60z" fill="#93C5FD"/>
+  
+  <!-- Building -->
+  <path d="M80 40h80v140H80V40z" fill="#F3F4F6"/>
+  <path d="M80 40h80" stroke="#D1D5DB" stroke-width="2"/>
+  
+  <!-- Windows -->
+  <rect x="95" y="60" width="20" height="20" fill="#60A5FA"/>
+  <rect x="125" y="60" width="20" height="20" fill="#60A5FA"/>
+  <rect x="95" y="90" width="20" height="20" fill="#60A5FA"/>
+  <rect x="125" y="90" width="20" height="20" fill="#60A5FA"/>
+  
+  <!-- Water Level Marker -->
+  <line x1="40" y1="100" x2="200" y2="100" stroke="#2563EB" stroke-width="2" stroke-dasharray="4 4"/>
+  
+  <!-- Warning Signs -->
+  <circle cx="190" cy="30" r="15" fill="#FEF3C7"/>
+  <path d="M190 20v10m0 5v0" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Evacuation Arrows -->
+  <path d="M20 60l15-15m-15 0l15 15" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+  <path d="M220 60l15-15m-15 0l15 15" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Water Ripples -->
+  <path d="M40 130c20-10 40-10 60 0" stroke="#60A5FA" stroke-width="2"/>
+  <path d="M140 130c20-10 40-10 60 0" stroke="#60A5FA" stroke-width="2"/>
+</svg>

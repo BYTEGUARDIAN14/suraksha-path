@@ -1,0 +1,4 @@
+  File "<string>", line 1
+    from app import create_app; app = create_app(); from app.seeds import run_seeds; with app.app_context(): run_seeds()
+                                                                                     ^^^^
+SyntaxError: invalid syntax

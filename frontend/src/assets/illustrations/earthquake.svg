@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240" height="180" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Building Base -->
+  <path d="M40 160h160v10H40v-10z" fill="#E5E7EB"/>
+  
+  <!-- Shaking Building -->
+  <path d="M70 40l100-10v130H70V40z" fill="#F3F4F6"/>
+  <path d="M70 40l100-10" stroke="#D1D5DB" stroke-width="2"/>
+  
+  <!-- Windows -->
+  <rect x="85" y="60" width="20" height="20" fill="#60A5FA"/>
+  <rect x="115" y="60" width="20" height="20" fill="#60A5FA"/>
+  <rect x="85" y="90" width="20" height="20" fill="#60A5FA"/>
+  <rect x="115" y="90" width="20" height="20" fill="#60A5FA"/>
+  <rect x="85" y="120" width="20" height="20" fill="#60A5FA"/>
+  <rect x="115" y="120" width="20" height="20" fill="#60A5FA"/>
+  
+  <!-- Cracks -->
+  <path d="M90 40l-5 30 10 20-8 25" stroke="#EF4444" stroke-width="2"/>
+  <path d="M150 30l5 35-12 25 15 30" stroke="#EF4444" stroke-width="2"/>
+  
+  <!-- Warning Signs -->
+  <circle cx="50" cy="30" r="15" fill="#FEF3C7"/>
+  <path d="M50 20v10m0 5v0" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Safety Arrows -->
+  <path d="M20 140l15-15m-15 0l15 15" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+  <path d="M200 140l15-15m-15 0l15 15" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+</svg>
