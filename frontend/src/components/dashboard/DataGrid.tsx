@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-import { cn } from '@/utils/cn';
 import { ChevronDown, ChevronUp, ChevronsUpDown } from 'lucide-react';
 
 interface Column<T> {
@@ -17,7 +15,6 @@ interface DataGridProps<T> {
   sortColumn?: string;
   sortDirection?: 'asc' | 'desc';
   onSort?: (column: string) => void;
-  className?: string;
 }
 
 export function DataGrid<T>({
@@ -27,7 +24,6 @@ export function DataGrid<T>({
   sortColumn,
   sortDirection,
   onSort,
-  className,
 }: DataGridProps<T>) {
   const getSortIcon = (column: Column<T>) => {
     if (!column.sortable) return null;
@@ -39,7 +35,7 @@ export function DataGrid<T>({
 
   if (loading) {
     return (
-      <div className={cn('rounded-lg border border-gray-200 overflow-hidden', className)}>
+      <div className="rounded-lg border border-gray-200 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -73,7 +69,7 @@ export function DataGrid<T>({
   }
 
   return (
-    <div className={cn('rounded-lg border border-gray-200 overflow-hidden', className)}>
+    <div className="rounded-lg border border-gray-200 overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>

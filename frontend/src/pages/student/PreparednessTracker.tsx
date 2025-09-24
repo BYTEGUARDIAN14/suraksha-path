@@ -30,7 +30,7 @@ export default function PreparednessTracker() {
         </CardHeader>
         <CardContent>
           <div className="mb-2 text-sm">{score ?? 0}%</div>
-          <Progress value={score ?? 0} max={100} variant="primary" />
+          <Progress value={score ?? 0} max={100} variant="success" />
         </CardContent>
       </Card>
 

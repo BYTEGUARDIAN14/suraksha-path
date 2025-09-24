@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Shield, Github, Twitter, Linkedin } from 'lucide-react';
-import SurakshaLogo from '@/assets/WhatsApp-Image-2025-09-09-at-20.33.33_d0915ebd.svg';
+import { Github, Twitter, Linkedin } from 'lucide-react';
+// @ts-ignore
+import SurakshaLogo from '../../assets/WhatsApp-Image-2025-09-09-at-20.33.33_d0915ebd.svg';
 
 const navigation = {
   main: [

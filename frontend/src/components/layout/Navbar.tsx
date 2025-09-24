@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Globe, ChevronDown } from 'lucide-react';
-import SurakshaLogo from '@/assets/WhatsApp-Image-2025-09-09-at-20.33.33_d0915ebd.svg';
+// @ts-ignore
+import SurakshaLogo from '../../assets/WhatsApp-Image-2025-09-09-at-20.33.33_d0915ebd.svg';
 import { useI18n, useTranslation } from '@/state/i18n';
 
 export default function Navbar() {
@@ -87,6 +88,22 @@ export default function Navbar() {
               >
                 {t['register'] || 'Register'}
               </Link>
+              {/* Language Toggle for Mobile */}
+              <div className="flex items-center space-x-2 mt-2">
+                <Globe className="w-4 h-4" />
+                <button
+                  className={`px-3 py-1 rounded ${lang === 'en' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'}`}
+                  onClick={() => setLang('en')}
+                >
+                  EN
+                </button>
+                <button
+                  className={`px-3 py-1 rounded ${lang === 'hi' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'}`}
+                  onClick={() => setLang('hi')}
+                >
+                  हिन्दी
+                </button>
+              </div>
             </div>
           </div>
         )}

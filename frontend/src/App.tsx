@@ -3,7 +3,6 @@ import { useAuth } from '@/state/auth';
 
 // Layout Components
 import Navbar from '@/components/layout/Navbar';
-import { Container } from '@/components/layout/Container';
 
 // Pages
 import Homepage from '@/pages/Homepage';
@@ -25,23 +24,13 @@ import ManageContacts from '@/pages/admin/ManageContacts';
 import Assistant from '@/pages/admin/Assistant';
 import Analytics from '@/pages/admin/Analytics';
 import Resources from '@/pages/Resources';
-import Features from '@/pages/Features';
 import FeatureDetail from '@/pages/FeatureDetail';
 
 // Components
-import { Alert } from '@/components/ui/Alert';
 import Chatbot from '@/components/Chatbot';
 
 export default function App() {
-  const { user, isLoading } = useAuth();
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
+  const { user } = useAuth();
 
   return (
     <div className="min-h-screen bg-white flex flex-col">

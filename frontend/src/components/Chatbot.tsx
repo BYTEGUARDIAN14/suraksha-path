@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { api } from '@/api/client';
 import { Send, Bot } from 'lucide-react';
-import Shield from '/shield.svg';
 
 const API_URL = '/chatbot';
 

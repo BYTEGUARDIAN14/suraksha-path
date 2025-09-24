@@ -4,37 +4,27 @@ import { cn } from '@/lib/utils';
 interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   value: number;
   max?: number;
-  variant?: 'default' | 'primary' | 'success' | 'warning' | 'error';
+  variant?: 'default' | 'success' | 'warning' | 'error';
   size?: 'sm' | 'md' | 'lg';
   showValue?: boolean;
   animate?: boolean;
 }
 
-const Progress = forwardRef<HTMLDivElement, ProgressProps>(({ 
-  className,
-  value,
-  max = 100,
-  variant = 'default',
-  size = 'md',
-  showValue = false,
-  animate = true,
-  ...props
-}, ref) => {
+const Progress = forwardRef<HTMLDivElement, ProgressProps>(({ className, value, max = 100, variant = 'default', size = 'md', showValue = false, animate = true }, ref) => {
   const percentage = Math.min(Math.max((value / max) * 100, 0), 100);
 
   const variants = {
     default: 'bg-primary',
-    primary: 'bg-primary',
     success: 'bg-success',
     warning: 'bg-warning',
     error: 'bg-error',
-  } as const;
+  };
 
   const sizes = {
     sm: 'h-1',
     md: 'h-2',
     lg: 'h-3',
-  } as const;
+  };
 
   return (
     <div
@@ -44,7 +34,6 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(({
       aria-valuemax={max}
       aria-valuenow={value}
       className={cn('relative w-full overflow-hidden rounded-full bg-gray-200', className)}
-      {...props}
     >
       <div className="flex items-center justify-between">
         <div

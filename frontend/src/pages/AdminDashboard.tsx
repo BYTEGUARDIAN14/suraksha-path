@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Target, Bell, BarChart3, Plus, Send } from 'lucide-react';
 import { useAuth } from '@/state/auth';

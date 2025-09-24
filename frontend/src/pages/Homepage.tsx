@@ -10,9 +10,7 @@ import {
   ArrowRight,
   Users,
   School,
-  Shield,
-  Award,
-  CheckCircle
+  Shield
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
@@ -20,11 +18,16 @@ import { Badge } from '@/components/ui/Badge';
 import { Container } from '@/components/layout/Container';
 import { StatsCard } from '@/components/dashboard/StatsCard';
 import { LineChart } from '@/components/dashboard/LineChart';
-import earthquakeIllustration from '@/assets/illustrations/earthquake.svg';
-import floodIllustration from '@/assets/illustrations/flood.svg';
-import fireIllustration from '@/assets/illustrations/fire.svg';
-import drillIllustration from '@/assets/illustrations/drill.svg';
-import SurakshaLogo from '@/assets/WhatsApp-Image-2025-09-09-at-20.33.33_d0915ebd.svg';
+// @ts-ignore
+import earthquakeIllustration from '../assets/illustrations/earthquake.svg';
+// @ts-ignore
+import floodIllustration from '../assets/illustrations/flood.svg';
+// @ts-ignore
+import fireIllustration from '../assets/illustrations/fire.svg';
+// @ts-ignore
+import drillIllustration from '../assets/illustrations/drill.svg';
+// @ts-ignore
+import SurakshaLogo from '../assets/WhatsApp-Image-2025-09-09-at-20.33.33_d0915ebd.svg';
 import { useI18n, useTranslation } from '@/state/i18n';
 import React from 'react';
 
@@ -80,39 +83,6 @@ const chartData = [
   { month: 'Apr', students: 6000, drills: 460 },
   { month: 'May', students: 8000, drills: 580 },
   { month: 'Jun', students: 10000, drills: 750 }
-];
-
-const howItWorks = [
-  {
-    icon: earthquakeIllustration,
-    title: 'how_step1',
-    desc: 'how_step1_desc',
-  },
-  {
-    icon: drillIllustration,
-    title: 'how_step2',
-    desc: 'how_step2_desc',
-  },
-  {
-    icon: fireIllustration,
-    title: 'how_step3',
-    desc: 'how_step3_desc',
-  },
-];
-
-const testimonials = [
-  {
-    name: 'A. Sharma',
-    role: 'School Principal',
-    quote: 'testimonial_1',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-  },
-  {
-    name: 'Priya Verma',
-    role: 'Student',
-    quote: 'testimonial_2',
-    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-  },
 ];
 
 export default function Homepage() {

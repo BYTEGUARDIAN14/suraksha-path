@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Target, Bell, CheckCircle, Award, ArrowRight, Sparkles, FileText, LogOut } from 'lucide-react';
+import { BookOpen, Target, Bell, Award, ArrowRight, Sparkles, FileText, LogOut } from 'lucide-react';
 import { useAuth } from '@/state/auth';
 import { Container } from '@/components/layout/Container';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
@@ -76,7 +76,7 @@ export default function StudentDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="mb-2 text-sm">{Math.round(preparedness)}%</div>
-                <Progress value={preparedness} max={100} variant="primary" />
+                <Progress value={preparedness} max={100} variant="success" />
                 <Link to="/student/tracker" className="mt-3 inline-flex items-center gap-1 text-blue-700 text-sm">View details <ArrowRight className="w-4 h-4" /></Link>
               </CardContent>
             </Card>
@@ -174,21 +174,21 @@ export default function StudentDashboard() {
                     <span className="text-sm font-medium">{t['student_earthquake_preparedness'] || 'Earthquake Preparedness'}</span>
                     <span className="text-sm font-medium">85%</span>
                   </div>
-                  <Progress value={85} max={100} variant="primary" />
+                  <Progress value={85} max={100} variant="success" />
                 </div>
                 <div>
                   <div className="flex justify-between mb-2">
                     <span className="text-sm font-medium">{t['student_flood_safety'] || 'Flood Safety'}</span>
                     <span className="text-sm font-medium">70%</span>
                   </div>
-                  <Progress value={70} max={100} variant="primary" />
+                  <Progress value={70} max={100} variant="success" />
                 </div>
                 <div>
                   <div className="flex justify-between mb-2">
                     <span className="text-sm font-medium">{t['student_fire_safety'] || 'Fire Safety'}</span>
                     <span className="text-sm font-medium">90%</span>
                   </div>
-                  <Progress value={90} max={100} variant="primary" />
+                  <Progress value={90} max={100} variant="success" />
                 </div>
               </div>
             </CardContent>

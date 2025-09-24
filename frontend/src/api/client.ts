@@ -1,7 +1,7 @@
 const base = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
 // Mock data for development when backend is not available
-const MOCK_ENABLED = (import.meta as any).env?.VITE_USE_MOCK === 'true';
+const MOCK_ENABLED = (import.meta as any).env?.VITE_USE_MOCK !== 'false';
 const MOCK_DELAY = 800; // Simulate network delay
 
 const MOCK_USERS = [
@@ -72,45 +72,22 @@ export async function api(path: string, opts: RequestInit = {}) {
       throw new Error('Mock API error');
     }
   }
-
-  async function doFetch(withoutToken = false) {
-    const token = withoutToken ? null : localStorage.getItem('token');
-    const headers: Record<string, string> = {
-      'Content-Type': 'application/json',
-      ...(opts.headers as Record<string, string> || {}),
-    };
-    if (token) headers['Authorization'] = `Bearer ${token}`;
-    const res = await fetch(`${base}${path}`, { ...opts, headers });
-    return res;
-  }
+  
+  // Real API call
+  const token = localStorage.getItem('token');
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    ...(opts.headers as Record<string, string> || {}),
+  };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
 
   try {
-    let res = await doFetch();
-    if (res.status === 401) {
-      // Token invalid or expired; clear and retry once
-      localStorage.removeItem('token');
-      res = await doFetch(true);
-    }
-    if (res.status === 422) {
-      const body = await res.text();
-      if (body.includes('Subject must be a string')) {
-        localStorage.removeItem('token');
-        const retry = await doFetch(true);
-        if (!retry.ok) throw new Error((await retry.text()) || 'Request failed');
-        const txt = await retry.text();
-        try { return txt ? JSON.parse(txt) : {}; } catch { return txt; }
-      } else {
-        throw new Error(body || 'Request failed');
-      }
-    }
+    const res = await fetch(`${base}${path}`, { ...opts, headers });
     if (!res.ok) throw new Error((await res.text()) || 'Request failed');
     const text = await res.text();
     try { return text ? JSON.parse(text) : {}; } catch { return text; }
-  } catch (error: any) {
+  } catch (error) {
     console.error('API call failed:', path, error);
-    if (error?.message && error.message.includes('Failed to fetch')) {
-      throw new Error('Network error. Is the server running?');
-    }
     throw error;
   }
 }
