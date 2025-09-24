@@ -17,9 +17,8 @@ def get_drills():
 @api_bp.post("/drills/participate")
 @jwt_required()
 def participate_drill():
-    claims = get_jwt()
-    sub = claims.get("sub")
-    user_id = int(sub) if isinstance(sub, str) and sub.isdigit() else (sub.get("id") if isinstance(sub, dict) else claims.get("id"))
+    sub = get_jwt().get("sub")
+    user_id = sub.get("id") if isinstance(sub, dict) else None
     data = request.get_json() or {}
     drill_id = data.get("drill_id")
     if not drill_id:

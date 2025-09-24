@@ -36,7 +36,7 @@ def login():
     user = db.session.scalar(db.select(User).filter_by(email=data.get("email")))
     if not user or not user.check_password(data.get("password", "")):
         return jsonify({"error": "Invalid credentials"}), 401
-    token = create_access_token(identity=str(user.id), additional_claims={"id": user.id, "role": user.role, "region": user.region})
+    token = create_access_token(identity={"id": user.id, "role": user.role, "region": user.region})
     return jsonify({
         "access_token": token,
         "user": {"id": user.id, "name": user.name, "role": user.role, "region": user.region},
