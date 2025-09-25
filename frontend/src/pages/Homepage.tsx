@@ -126,12 +126,12 @@ export default function Homepage() {
               {/* Removed mini brand pill per request */}
               {lang === 'en' ? (
                 <>
-                  <h1 className="text-6xl md:text-7xl font-extrabold font-poppins mb-4 md:mb-6 text-gray-900 leading-tight">
+                  <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold font-poppins mb-4 md:mb-6 text-gray-900 leading-tight">
                     <span className="text-blue-700">Build</span> Prepared,
                     <br />
                     <span className="text-blue-700">Stay</span> Safe
                   </h1>
-                  <p className="text-2xl text-gray-700 mb-6 md:mb-8 max-w-2xl font-poppins">
+                  <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6 md:mb-8 max-w-2xl font-poppins">
                     <span className="text-blue-700 font-semibold">Comprehensive</span> disaster preparedness training for Indian schools and colleges.
                     <span className="text-blue-700 font-semibold"> Interactive learning</span>, virtual drills, and
                     <span className="text-blue-700 font-semibold"> real‑time alerts</span> to build safer campuses.
@@ -139,16 +139,16 @@ export default function Homepage() {
                 </>
               ) : (
                 <>
-                  <h1 className="text-5xl md:text-6xl font-extrabold font-poppins mb-4 md:mb-6 text-gray-900 leading-tight">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-poppins mb-4 md:mb-6 text-gray-900 leading-tight">
                     {t['title']}
                   </h1>
-                  <p className="text-2xl text-gray-700 mb-6 md:mb-8 max-w-2xl font-poppins">
+                  <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6 md:mb-8 max-w-2xl font-poppins">
                     {t['desc']}
                   </p>
                 </>
               )}
               <div className="flex flex-wrap gap-4 mb-8 md:mb-10">
-                <Button size="lg" className="text-lg px-8 py-4" onClick={() => navigate('/register')}>
+                <Button size="lg" className="text-lg px-8 py-4" onClick={() => navigate('/login')}>
                   {t['btn1'] || 'Start Learning'}
                   <ArrowRight className="ml-2 w-6 h-6" />
                 </Button>

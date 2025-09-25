@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, Lock, CheckCircle, ArrowRightCircle } from 'lucide-react';
+import { Mail, Lock, CheckCircle, ArrowRightCircle, Shield, User } from 'lucide-react';
 import { api } from '@/api/client';
 import { useAuth } from '@/state/auth';
 import { Button } from '@/components/ui/Button';
@@ -69,6 +69,33 @@ export default function Login() {
                 <CardDescription className="text-base">{t['login_desc'] || 'Sign in to your Suraksha Path account to continue'}</CardDescription>
               </CardHeader>
               <CardContent>
+                {/* Quick demo accounts */}
+                <div className="mb-6">
+                  <div className="text-sm text-gray-600 mb-2">Quick demo accounts</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => {
+                        setEmail('admin@sih.test');
+                        setPassword('Admin@123');
+                      }}
+                    >
+                      <Shield className="w-4 h-4 mr-2" /> Admin
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => {
+                        setEmail('student1@sih.test');
+                        setPassword('Student@123');
+                      }}
+                    >
+                      <User className="w-4 h-4 mr-2" /> Student
+                    </Button>
+                  </div>
+                </div>
+
               {error && (
                 <Alert
                   variant="error"
@@ -124,7 +151,7 @@ export default function Login() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                   <div className="flex items-center">
                     <input
                       id="remember-me"

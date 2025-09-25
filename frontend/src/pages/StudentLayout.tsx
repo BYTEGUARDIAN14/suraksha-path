@@ -6,7 +6,7 @@ export default function StudentLayout() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Container>
-        <div className="flex gap-6 py-6">
+        <div className="flex flex-col md:flex-row gap-6 py-6">
           <Sidebar
             title="Student"
             items={[

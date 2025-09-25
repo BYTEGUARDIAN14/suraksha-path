@@ -9,7 +9,7 @@ interface SidebarProps {
 
 export default function Sidebar({ title, items }: SidebarProps) {
   return (
-    <aside className="w-full md:w-64 border-r bg-white">
+    <aside className="w-full md:w-64 border-b md:border-b-0 md:border-r bg-white">
       <div className="p-4 border-b">
         <h2 className="text-lg font-semibold text-blue-700 font-poppins">{title}</h2>
       </div>
