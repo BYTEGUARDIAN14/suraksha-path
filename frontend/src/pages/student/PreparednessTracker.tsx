@@ -14,7 +14,7 @@ export default function PreparednessTracker() {
         const s = await api('/preparedness');
         setScore(s?.preparedness_score ?? 0);
         const h = await api('/scores/me');
-        setHistory(h || []);
+        setHistory(Array.isArray(h) ? h : []);
       } catch (e: any) {
         setError(e?.message || 'Failed to load preparedness data');
       }

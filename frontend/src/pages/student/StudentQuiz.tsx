@@ -22,9 +22,9 @@ export default function StudentQuiz() {
     (async () => {
       try {
         const qs = await api('/quizzes');
-        if (mounted) setQuestions(qs || []);
+        if (mounted) setQuestions(Array.isArray(qs) ? qs : []);
         const lb = await api('/leaderboard');
-        if (mounted) setLeaderboard(lb || []);
+        if (mounted) setLeaderboard(Array.isArray(lb) ? lb : []);
       } catch (e: any) {
         setMessage(e?.message || 'Failed to load quiz');
       } finally {
@@ -44,7 +44,7 @@ export default function StudentQuiz() {
       const res = await api('/quizzes/submit', { method: 'POST', body: JSON.stringify(payload) });
       setMessage(`Submitted. Score: ${res?.score ?? 'N/A'}`);
       const lb = await api('/leaderboard');
-      setLeaderboard(lb || []);
+      setLeaderboard(Array.isArray(lb) ? lb : []);
     } catch (e: any) {
       setMessage(e?.message || 'Submit failed');
     } finally {

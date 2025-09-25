@@ -28,8 +28,8 @@ export default function StudentDashboard() {
         const al = await api('/alerts');
         if (!active) return;
         setPreparedness(Number(p?.preparedness_score ?? 0));
-        setLeaderboard(lb || []);
-        setAlerts(al || []);
+        setLeaderboard(Array.isArray(lb) ? lb : []);
+        setAlerts(Array.isArray(al) ? al : []);
       } catch {}
     })();
     return () => { active = false; };

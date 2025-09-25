@@ -10,6 +10,73 @@ const MOCK_USERS = [
   { id: 3, name: 'Student 2', email: 'student2@sih.test', role: 'student', region: 'DL' },
 ];
 
+const MOCK_PREPAREDNESS = {
+  preparedness_score: 75,
+  drills_completed: 8,
+  quizzes_passed: 12,
+  last_updated: new Date().toISOString(),
+  categories: {
+    earthquake: 85,
+    flood: 70,
+    fire: 80,
+    general: 75
+  }
+};
+
+const MOCK_LEADERBOARD = [
+  { id: 1, name: 'Admin User', score: 95, role: 'admin' },
+  { id: 2, name: 'Student 1', score: 85, role: 'student' },
+  { id: 3, name: 'Student 2', score: 78, role: 'student' },
+  { id: 4, name: 'Demo Student', score: 72, role: 'student' },
+  { id: 5, name: 'Test User', score: 68, role: 'student' }
+];
+
+const MOCK_ALERTS = [
+  {
+    id: 1,
+    title: 'Earthquake Drill Scheduled',
+    message: 'A mandatory earthquake drill is scheduled for tomorrow at 10:00 AM. Please review the safety procedures.',
+    type: 'drill',
+    priority: 'high',
+    created_at: new Date(Date.now() - 86400000).toISOString(),
+    region: 'MH'
+  },
+  {
+    id: 2,
+    title: 'Flood Safety Reminder',
+    message: 'With monsoon season approaching, please review flood safety guidelines and emergency contacts.',
+    type: 'reminder',
+    priority: 'medium',
+    created_at: new Date(Date.now() - 172800000).toISOString(),
+    region: 'MH'
+  },
+  {
+    id: 3,
+    title: 'New Safety Resources Available',
+    message: 'Updated emergency preparedness guides are now available in the resources section.',
+    type: 'info',
+    priority: 'low',
+    created_at: new Date(Date.now() - 259200000).toISOString(),
+    region: 'MH'
+  }
+];
+
+const MOCK_QUIZZES = [
+  {
+    id: 1,
+    title: 'Earthquake Preparedness Quiz',
+    description: 'Test your knowledge of earthquake safety procedures',
+    questions: [
+      {
+        id: 1,
+        question: 'What is the first thing you should do during an earthquake?',
+        options: ['Run outside', 'Drop, Cover, and Hold', 'Call emergency services', 'Hide under a table'],
+        correct_answer: 1
+      }
+    ]
+  }
+];
+
 // Mock API handler
 async function mockApi(path: string, opts: RequestInit = {}) {
   await new Promise(resolve => setTimeout(resolve, MOCK_DELAY));
@@ -54,7 +121,35 @@ async function mockApi(path: string, opts: RequestInit = {}) {
     if (q.includes('fire')) return { question, answer: 'Stop, Drop, Roll', score: 0.85 };
     return { question, answer: 'Stay calm and ensure personal safety first.', score: 0.5 };
   }
-  
+
+  // Preparedness endpoint
+  if (path === '/preparedness') {
+    return MOCK_PREPAREDNESS;
+  }
+
+  // Leaderboard endpoint
+  if (path === '/leaderboard') {
+    return MOCK_LEADERBOARD;
+  }
+
+  // Alerts endpoint
+  if (path === '/alerts') {
+    return MOCK_ALERTS;
+  }
+
+  // Scores endpoint
+  if (path === '/scores/me') {
+    return [
+      { id: 1, quiz_id: 1, score: 85, completed_at: new Date().toISOString() },
+      { id: 2, quiz_id: 2, score: 92, completed_at: new Date().toISOString() }
+    ];
+  }
+
+  // Quizzes endpoint
+  if (path === '/quizzes') {
+    return MOCK_QUIZZES;
+  }
+
   // Default response for unhandled endpoints
   console.warn('Unhandled mock API call:', path, opts);
   return { mock: true, path, method: opts.method };
