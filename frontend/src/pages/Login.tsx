@@ -70,29 +70,36 @@ export default function Login() {
               </CardHeader>
               <CardContent>
                 {/* Quick demo accounts */}
-                <div className="mb-6">
-                  <div className="text-sm text-gray-600 mb-2">Quick demo accounts</div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <div className="text-sm font-medium text-blue-800 mb-3 flex items-center">
+                    <span className="mr-2">🎯</span> Try Demo Accounts
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <Button
-                      variant="secondary"
+                      variant="outline"
                       size="sm"
+                      className="border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-400 transition-all duration-200 font-medium"
                       onClick={() => {
                         setEmail('admin@sih.test');
                         setPassword('Admin@123');
                       }}
                     >
-                      <Shield className="w-4 h-4 mr-2" /> Admin
+                      <Shield className="w-4 h-4 mr-2" /> Admin Demo
                     </Button>
                     <Button
-                      variant="secondary"
+                      variant="outline"
                       size="sm"
+                      className="border-green-300 text-green-700 hover:bg-green-100 hover:border-green-400 transition-all duration-200 font-medium"
                       onClick={() => {
                         setEmail('student1@sih.test');
                         setPassword('Student@123');
                       }}
                     >
-                      <User className="w-4 h-4 mr-2" /> Student
+                      <User className="w-4 h-4 mr-2" /> Student Demo
                     </Button>
+                  </div>
+                  <div className="text-xs text-blue-600 mt-2">
+                    Click any button above to auto-fill credentials
                   </div>
                 </div>
 
